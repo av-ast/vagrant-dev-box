@@ -1,0 +1,13 @@
+---
+
+- name: install zmq
+  sudo: true
+  shell:
+    curl -O {{ zmq_src_mirror }}
+    && tar -zxf {{ zmq_tar }}
+    && cd {{ zmq_folder }}
+    && ./configure --prefix={{ zmq_install_dir }}
+    && make && make install
+    && echo "{{ zmq_install_dir }}/lib" > /etc/ld.so.conf.d/zmq.conf
+    && ldconfig
+    creates={{ zmq_install_dir }}/lib/libzmq.so

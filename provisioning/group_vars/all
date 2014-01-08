@@ -1,0 +1,20 @@
+---
+
+locale: en_US.UTF-8
+locale_lang: en_US
+locale_encoding: UTF-8
+
+nodejs_apt_key: C7917B12
+nodejs_apt_repo: "deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main"
+sid_apt_repo: "deb http://ftp.debian.org/debian sid main"
+
+ruby_version: 1.9.3-p327
+
+undev_apt_repo: "deb http://build.undev.cc/repositories/infra-production/Debian_6.0/ ./"
+undev_apt_repo_key: "http://build.undev.cc/repositories/infra-production/Debian_6.0/Release.key"
+
+zmq_version: 3.2.3
+zmq_install_dir: /opt/zeromq-{{ zmq_version }}
+zmq_folder: zeromq-{{ zmq_version }}
+zmq_tar: "{{ zmq_folder }}.tar.gz"
+zmq_src_mirror: http://download.zeromq.org/{{ zmq_tar }}

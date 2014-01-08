@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  roles:
+  - common
+  - erlang
+  # - nodejs
+  - db
+  - rvm
+  - sfk
+  - zmq

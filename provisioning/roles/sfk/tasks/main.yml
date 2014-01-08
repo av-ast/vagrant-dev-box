@@ -1,0 +1,23 @@
+---
+
+- name: install packages
+  sudo: true
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - libcurl4-gnutls-dev
+    - libcairo2-dev
+    - libpango1.0-dev
+    - imagemagick
+    - libmagickwand-dev
+
+- name: add undev repo key
+  sudo: true
+  apt_key: url={{ undev_apt_repo_key }} state=present
+
+- name: add undev repo
+  sudo: true
+  apt_repository: repo='{{ undev_apt_repo }}' state=present
+
+- name: add nptv fonts
+  sudo: true
+  apt: pkg=xfonts-nptv state=installed
