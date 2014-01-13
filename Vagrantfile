@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "squeeze64"
   config.vm.hostname = "squeeze64"
-  config.vm.box_url = "~/projects/vagrant/boxes/squeeze64.box"
+  config.vm.box_url = "https://www.dropbox.com/s/vln5y7pfx2veuuc/squeeze64.box"
 
   config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--memory", 2048]
