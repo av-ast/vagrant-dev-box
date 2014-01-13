@@ -4,9 +4,10 @@ locale: en_US.UTF-8
 locale_lang: en_US
 locale_encoding: UTF-8
 
-nodejs_apt_key: C7917B12
-nodejs_apt_repo: "deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main"
-sid_apt_repo: "deb http://ftp.debian.org/debian sid main"
+nodejs_version: 0.10.24
+nodejs_src_folder: zeromq-{{ zmq_version }}
+nodejs_tar: "node-v{{ nodejs_version }}.tar.gz"
+nodejs_src_url: "http://nodejs.org/dist/v{{ nodejs_version }}/node-v{{ nodejs_version }}.tar.gz"
 
 ruby_version: 1.9.3-p327
 

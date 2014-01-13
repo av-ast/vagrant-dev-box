@@ -1,24 +1,17 @@
 ---
 
-- name: add apt key for node.js launchpad repo
+- name: fetch node.js sources
+  shell:
+    curl -O {{ nodejs_src_url }}
+    creates={{ nodejs_tar }}
+
+- name: install node.js
   sudo: true
   shell:
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys {{ nodejs_apt_key }}
-
-- name: add apt repo for node.js
-  sudo: true
-  apt_repository: repo='{{ nodejs_apt_repo }}' state=present
-
-- name: add apt sid repo
-  sudo: true
-  apt_repository: repo='{{ sid_apt_repo }}' state=present
-
-- name: install nodejs (with deps) package
-  sudo: true
-  apt: pkg={{ item }} state=installed
-  with_items:
-    - libc6-dev
-    - nodejs
+    tar -zxf {{ nodejs_tar }}
+    && cd {{ nodejs_src_folder }}
+    && ./configure && make && make install
+    creates=/usr/local/bin/node
 
 - name: install npm packages
   sudo: true
