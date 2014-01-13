@@ -10,6 +10,7 @@
     - git
     - htop
     - python-pycurl
+    - g++
 
 - name: define locale
   sudo: true
