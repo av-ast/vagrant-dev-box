@@ -18,4 +18,4 @@ zmq_version: 3.2.3
 zmq_install_dir: /opt/zeromq-{{ zmq_version }}
 zmq_folder: zeromq-{{ zmq_version }}
 zmq_tar: "{{ zmq_folder }}.tar.gz"
-zmq_src_mirror: http://download.zeromq.org/{{ zmq_tar }}
+zmq_src_url: http://download.zeromq.org/{{ zmq_tar }}

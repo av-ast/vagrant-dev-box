@@ -1,10 +1,14 @@
 ---
 
+- name: fetch zmq sources
+  shell:
+    curl -O {{ zmq_src_url }}
+    creates={{ zmq_tar }}
+
 - name: install zmq
   sudo: true
   shell:
-    curl -O {{ zmq_src_mirror }}
-    && tar -zxf {{ zmq_tar }}
+    tar -zxf {{ zmq_tar }}
     && cd {{ zmq_folder }}
     && ./configure --prefix={{ zmq_install_dir }}
     && make && make install
