@@ -1,0 +1,20 @@
+---
+
+- name: fetch golang binaries
+  shell:
+    curl -O {{ golang_src_url }}
+    creates={{ golang_tar }}
+
+- name: install golang
+  sudo: true
+  shell:
+    tar -C /usr/local -zxf {{ golang_tar }}
+    creates=/usr/local/go/bin/
+
+- name: activate golang
+  lineinfile:
+    dest=~/.bashrc
+    line="export PATH=$PATH:/usr/local/go/bin"
+    state=present
+    backup=yes
+    insertafter=EOF
