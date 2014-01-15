@@ -5,7 +5,7 @@
   - common
   - erlang
   - nodejs
-  - db
+  - postgres
   - rvm
   - sfk
   - zmq
