@@ -10,6 +10,8 @@
     - git
     - htop
     - python-pycurl
+    - python-pip
+    - python-dev
     - g++
 
 - name: define locale

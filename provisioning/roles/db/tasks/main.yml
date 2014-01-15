@@ -13,9 +13,8 @@
 
 - name: install postgresql
   sudo: true
-  apt: pkg=postgresql-{{pg_version}} state=installed
+  apt: pkg=postgresql-server-dev-{{pg_version}} state=installed
     force=yes
-
 
 - name: update postgres client configuration
   sudo: true
@@ -24,6 +23,10 @@
     - restart postgresql
 
 - meta: flush_handlers
+
+- name: install psycopg2 python module
+  sudo: true
+  pip: name=psycopg2
 
 - name: create postgres user (vagrant)
   postgresql_user:
