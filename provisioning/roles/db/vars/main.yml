@@ -1,0 +1,5 @@
+---
+
+pg_version: 9.3
+pg_user: vagrant
+pg_password: vagrant
