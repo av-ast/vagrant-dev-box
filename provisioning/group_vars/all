@@ -1,8 +1,5 @@
 ---
 
-undev_apt_repo: "deb http://build.undev.cc/repositories/infra-production/Debian_6.0/ ./"
-undev_apt_repo_key: "http://build.undev.cc/repositories/infra-production/Debian_6.0/Release.key"
-
 zmq_version: 3.2.3
 zmq_install_dir: /opt/zeromq-{{ zmq_version }}
 zmq_folder: zeromq-{{ zmq_version }}

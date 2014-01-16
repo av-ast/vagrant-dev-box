@@ -12,11 +12,11 @@
 
 - name: add undev repo key
   sudo: true
-  apt_key: url={{ undev_apt_repo_key }} state=present
+  apt_key: url={{ sfk.undev_apt_repo_key }} state=present
 
 - name: add undev repo
   sudo: true
-  apt_repository: repo='{{ undev_apt_repo }}' state=present
+  apt_repository: repo='{{ sfk.undev_apt_repo }}' state=present
 
 - name: add nptv fonts
   sudo: true

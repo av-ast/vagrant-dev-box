@@ -1,0 +1,5 @@
+---
+
+sfk:
+  undev_apt_repo: "deb http://build.undev.cc/repositories/infra-production/Debian_6.0/ ./"
+  undev_apt_repo_key: "http://build.undev.cc/repositories/infra-production/Debian_6.0/Release.key"
