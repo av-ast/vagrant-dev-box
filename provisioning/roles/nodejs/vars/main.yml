@@ -1,0 +1,9 @@
+---
+
+nodejs_version: 0.10.24
+nodejs:
+  version: nodejs_version
+  src_folder: "node-v{{ nodejs_version }}"
+  tar: "node-v{{ nodejs_version }}.tar.gz"
+  src_url: "http://nodejs.org/dist/v{{ nodejs_version }}/node-v{{ nodejs_version }}.tar.gz"
+

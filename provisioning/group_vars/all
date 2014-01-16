@@ -1,10 +1,5 @@
 ---
 
-nodejs_version: 0.10.24
-nodejs_src_folder: node-v{{ nodejs_version }}
-nodejs_tar: "node-v{{ nodejs_version }}.tar.gz"
-nodejs_src_url: "http://nodejs.org/dist/v{{ nodejs_version }}/node-v{{ nodejs_version }}.tar.gz"
-
 golang_version: 1.2
 golang_tar: "go{{ golang_version }}.linux-amd64.tar.gz"
 golang_src_url: "https://go.googlecode.com/files/go{{ golang_version }}.linux-amd64.tar.gz"

@@ -2,14 +2,14 @@
 
 - name: fetch node.js sources
   shell:
-    curl -O {{ nodejs_src_url }}
-    creates={{ nodejs_tar }}
+    curl -O {{ nodejs.src_url }}
+    creates={{ nodejs.tar }}
 
 - name: install node.js
   sudo: true
   shell:
-    tar -zxf {{ nodejs_tar }}
-    && cd {{ nodejs_src_folder }}
+    tar -zxf {{ nodejs.tar }}
+    && cd {{ nodejs.src_folder }}
     && ./configure && make && make install
     creates=/usr/local/bin/node
 
