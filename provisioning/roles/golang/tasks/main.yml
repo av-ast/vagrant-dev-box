@@ -14,7 +14,7 @@
 - name: activate golang
   lineinfile:
     dest=~/.bashrc
-    line="export PATH=$PATH:/usr/local/go/bin"
+    line="export PATH=$PATH:/usr/local/go/bin; export GOPATH=~/.go"
     state=present
     backup=yes
     insertafter=EOF
