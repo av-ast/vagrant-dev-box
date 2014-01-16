@@ -18,12 +18,12 @@
 - name: define locale
   sudo: true
   shell:
-    localedef -i {{locale_lang}} -f {{locale_encoding}} {{locale}}
+    localedef -i {{locale.lang}} -f {{locale.encoding}} {{locale.full}}
 
 - name: set user locale
   lineinfile:
     dest=~/.bashrc
-    line="export LC_ALL={{locale}}; export LANG={{locale}}; export LANGUAGE={{locale}}"
+    line="export LC_ALL={{locale.full}}; export LANG={{locale.full}}; export LANGUAGE={{locale.full}}"
     state=present
     backup=yes
     insertafter=EOF
