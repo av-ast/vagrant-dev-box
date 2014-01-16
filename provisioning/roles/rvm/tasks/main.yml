@@ -1,7 +1,7 @@
 ---
 
 - name: install RVM with ruby
-  shell: curl -sSL https://get.rvm.io | bash -s stable --ruby={{ ruby_version }} creates=~/.rvm
+  shell: curl -sSL https://get.rvm.io | bash -s stable --ruby={{ ruby.version }} creates=~/.rvm
 
 - name: install gems
   gem: name={{ item }} state=latest
