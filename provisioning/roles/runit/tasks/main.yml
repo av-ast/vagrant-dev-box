@@ -1,0 +1,5 @@
+---
+
+- name: install runit
+  sudo: true
+  apt: pkg=runit
