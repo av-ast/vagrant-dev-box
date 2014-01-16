@@ -1,5 +1,6 @@
 ---
 
-pg_version: 9.3
-pg_user: vagrant
-pg_password: vagrant
+postgres:
+  version: 9.3
+  user: vagrant
+  password: vagrant

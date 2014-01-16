@@ -13,12 +13,12 @@
 
 - name: install postgresql
   sudo: true
-  apt: pkg=postgresql-server-dev-{{pg_version}} state=installed
+  apt: pkg=postgresql-server-dev-{{postgres.version}} state=installed
     force=yes
 
 - name: update postgres client configuration
   sudo: true
-  copy: src=pg_hba.conf dest=/etc/postgresql/{{ pg_version }}/main/pg_hba.conf
+  copy: src=pg_hba.conf dest=/etc/postgresql/{{ postgres.version }}/main/pg_hba.conf
   notify:
     - restart postgresql
 
@@ -30,5 +30,5 @@
 
 - name: create postgres user (vagrant)
   postgresql_user:
-    name={{ pg_user }}
-    password={{ pg_password }}
+    name={{ postgres.user }}
+    password={{ postgres.password }}
