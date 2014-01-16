@@ -1,0 +1,7 @@
+---
+
+golang_version: 1.2
+golang:
+  tar: "go{{ golang_version }}.linux-amd64.tar.gz"
+  src_url: "https://go.googlecode.com/files/go{{ golang_version }}.linux-amd64.tar.gz"
+

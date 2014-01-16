@@ -2,13 +2,13 @@
 
 - name: fetch golang binaries
   shell:
-    curl -O {{ golang_src_url }}
-    creates={{ golang_tar }}
+    curl -O {{ golang.src_url }}
+    creates={{ golang.tar }}
 
 - name: install golang
   sudo: true
   shell:
-    tar -C /usr/local -zxf {{ golang_tar }}
+    tar -C /usr/local -zxf {{ golang.tar }}
     creates=/usr/local/go/bin/
 
 - name: activate golang
