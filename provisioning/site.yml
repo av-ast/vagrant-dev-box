@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  roles:
+  - common
+  - erlang
+  - nodejs
+  - postgres
+  - rvm
+  - zmq
+  - golang
+  - clojure

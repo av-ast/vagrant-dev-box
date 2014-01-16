@@ -1,0 +1,29 @@
+---
+
+- name: install packages
+  sudo: true
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - locales
+    - curl
+    - vim
+    - git
+    - htop
+    - python-pycurl
+    - python-pip
+    - python-dev
+    - g++
+    - bzr
+
+- name: define locale
+  sudo: true
+  shell:
+    localedef -i {{locale.lang}} -f {{locale.encoding}} {{locale.full}}
+
+- name: set user locale
+  lineinfile:
+    dest=~/.bashrc
+    line="export LC_ALL={{locale.full}}; export LANG={{locale.full}}; export LANGUAGE={{locale.full}}"
+    state=present
+    backup=yes
+    insertafter=EOF

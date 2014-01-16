@@ -1,0 +1,10 @@
+---
+
+- name: install RVM with ruby
+  shell: curl -sSL https://get.rvm.io | bash -s stable --ruby={{ ruby.version }} creates=~/.rvm
+
+- name: install gems
+  gem: name={{ item }}
+  with_items:
+    - bundler
+    - parallel_tests

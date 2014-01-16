@@ -1,0 +1,16 @@
+---
+
+- name: install clojure
+  sudo: true
+  apt: pkg=clojure state=installed
+
+- name: get Leiningen installer
+  sudo: true
+  shell:
+    curl -o /usr/local/bin/lein https://raw.github.com/technomancy/leiningen/stable/bin/lein
+    && chmod a+x /usr/local/bin/lein
+    creates=/usr/local/bin/lein
+
+- name: Leiningen self-install
+  shell: lein
+    creates=~/.lein

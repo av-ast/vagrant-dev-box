@@ -1,0 +1,23 @@
+---
+
+- name: setup kerl
+  sudo: true
+  shell:
+    curl -O https://raw.github.com/spawngrid/kerl/master/kerl
+    && chmod +x kerl
+    && cp kerl /usr/local/bin
+    creates=/usr/local/bin/kerl
+
+- name: setup erlang
+  shell:
+    kerl build R16B03 r16b03
+    && kerl install r16b03 ~/.kerl/erlangs/r16b03
+    creates=~/.kerl/erlangs/r16b03
+
+- name: activate erlang
+  lineinfile:
+    dest=~/.bashrc
+    line=". ~/.kerl/erlangs/r16b03/activate"
+    state=present
+    backup=yes
+    insertafter=EOF

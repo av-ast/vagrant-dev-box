@@ -1,0 +1,6 @@
+---
+
+postgres:
+  version: 9.3
+  user: vagrant
+  password: vagrant

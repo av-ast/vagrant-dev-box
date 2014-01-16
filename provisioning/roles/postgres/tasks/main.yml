@@ -1,0 +1,34 @@
+---
+
+- name: add apt key
+  sudo: true
+  apt_key: url="https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+    id=ACCC4CF8
+    state=present
+
+- name: add apt repository
+  sudo: true
+  apt_repository: repo="deb http://apt.postgresql.org/pub/repos/apt/ squeeze-pgdg main"
+    state=present
+
+- name: install postgresql
+  sudo: true
+  apt: pkg=postgresql-server-dev-{{postgres.version}} state=installed
+    force=yes
+
+- name: update postgres client configuration
+  sudo: true
+  copy: src=pg_hba.conf dest=/etc/postgresql/{{ postgres.version }}/main/pg_hba.conf
+  notify:
+    - restart postgresql
+
+- meta: flush_handlers
+
+- name: install psycopg2 python module
+  sudo: true
+  pip: name=psycopg2
+
+- name: create postgres user (vagrant)
+  postgresql_user:
+    name={{ postgres.user }}
+    password={{ postgres.password }}

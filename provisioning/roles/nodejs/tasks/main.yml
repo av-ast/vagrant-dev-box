@@ -1,0 +1,21 @@
+---
+
+- name: fetch node.js sources
+  shell:
+    curl -O {{ nodejs.src_url }}
+    creates={{ nodejs.tar }}
+
+- name: install node.js
+  sudo: true
+  shell:
+    tar -zxf {{ nodejs.tar }}
+    && cd {{ nodejs.src_folder }}
+    && ./configure && make && make install
+    creates=/usr/local/bin/node
+
+- name: install npm packages
+  sudo: true
+  npm: name={{ item }} global=yes
+  with_items:
+    - grunt-cli
+    - lodash
