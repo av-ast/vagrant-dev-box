@@ -24,7 +24,7 @@
 - name: set user locale
   lineinfile:
     dest=~/.bashrc
-    line="export LC_ALL={{locale.full}}; export LANG={{locale.full}}; export LANGUAGE={{locale.full}}"
+    line="export LC_ALL={{locale.full}} LANG={{locale.full}} LANGUAGE={{locale.full}}"
     state=present
     backup=yes
     insertafter=EOF
