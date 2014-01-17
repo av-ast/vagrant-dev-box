@@ -7,7 +7,8 @@
   - nodejs
   - postgres
   - rvm
-  - sfk
   - zmq
   - golang
   - clojure
+  - runit
+  - sfk

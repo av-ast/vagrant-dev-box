@@ -1,0 +1,12 @@
+---
+
+- name: install runit
+  sudo: true
+  apt: pkg=runit
+
+- name: install runit-man
+  gem: name=runit-man state=latest
+
+- name: register runit-man as runit service
+  shell:
+    runit-man -r
