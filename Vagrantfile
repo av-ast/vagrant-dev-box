@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 8888, host: 8888
   config.vm.network :forwarded_port, guest: 4021, host: 4021
 
-  config.vm.synced_folder "~/projects", "/home/vagrant/projects"
+  config.vm.synced_folder "~/projects", "/home/vagrant/projects", type: "nfs"
 
   config.vm.provision "ansible" do |ansible|
     ansible.inventory_path = "provisioning/development"
