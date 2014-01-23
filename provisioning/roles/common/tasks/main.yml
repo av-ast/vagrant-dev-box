@@ -15,6 +15,7 @@
     - g++
     - bzr
     - nginx
+    - redis-server
 
 - name: define locale
   sudo: true
