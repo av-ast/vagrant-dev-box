@@ -13,7 +13,7 @@
 
 - name: install postgresql
   sudo: true
-  apt: pkg=postgresql-server-dev-{{postgres.version}} state=installed
+  apt: pkg=postgresql-{{postgres.version}} state=installed
     force=yes
 
 - name: update postgres client configuration
